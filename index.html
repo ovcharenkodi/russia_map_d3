@@ -8,24 +8,33 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
          <style type="text/css">
 
-      body {
+    body {
       
     background-image: url("bg.gif"); 
     }
 
-   container{
-width:100%;
 
-  }
+  .layout {
+    width: 1100px; /* Ширина макета */
+    margin: auto; /* Выравниваем по центру */
+    /*border: 1px solid #00f; /* Параметры рамки *//*/
+    /*background: url(bg.gif) 100% 100% no-repeat;*/
+   }
+
+
+    .wrap { padding: 10px 10px 70px; }
 
     #header {
  align:"center";
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   z-index: 1;
 }
   #header {
-
-    width: 500px;
+    width: 410px; 
+    position: relative; 
+    left: 50%; 
+    margin-left: -235px; 
+    margin-top: 30px;
     padding: 5px;
     background: #f2eebb url("bg_yellow.png");
     text-align: center;
@@ -51,20 +60,11 @@ width:100%;
     #header img.headerRight {
       right: -80px; }
 
-    #header {
-    width: 410px; 
-
-    position: relative; 
-    left: 50%; 
-    margin-left: -235px; 
-    margin-top: 30px;
-  }
-
-      .map{
+    .map{
+         min-height: 650px; /* Минимальная высота */
          position: relative; 
-    left: 50%; 
-    margin-left: -525px; 
-        margin-top: -90px;
+        margin-top: -100px;
+        padding-top: 50px; /* Поле слева */
       }
 
   </style>
@@ -72,8 +72,8 @@ width:100%;
 
     </head>
     <body>
-
-<div class=container>     
+      <div class="layout">
+        <div class="wrap">  
 
 <div id="header">
         <div class="innerHeader">
@@ -90,7 +90,7 @@ width:100%;
       <script src="map.json" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
   
-      var w = 1050;
+      var w = 1060;
       var h = 610;
       var svg = d3.select(".map")
             .append("svg")
@@ -166,6 +166,7 @@ width:100%;
 
 
       </script>
+</div>
 </div>
     </body>
 </html>
