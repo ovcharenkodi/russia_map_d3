@@ -4,9 +4,11 @@
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
         <title>D3 Russian map</title>
-        <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+         
+         <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+         <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
          <style type="text/css">
+
 
     body {
       
@@ -151,18 +153,27 @@
       var state = d3.select(this).attr('id'),
 
         msg = '<h1>' + dataset[state].label + '</h1>';
-      
+              
 
       d3.select('#header').classed('hidden', false);
       d3.select('#header .innerHeader').html(msg);
       
     });
 
+      d3.selectAll('.state').on("click", function() { 
+        alert(dataset[d3.select(this).attr('id')].label); 
+      });
+
 
     svg.selectAll(".state")
     .style("fill", "url(#img)")
     .style("stroke-width", "1.5px").attr("stroke", "white")
-    .on("mouseout", function(){d3.select(this).style("fill", "url(#img)");});
+    .on("mouseout", function(){
+          d3.select(this).style("fill", "url(#img)");
+          msg = '<h1>' + 'Россия' + '</h1>';
+          d3.select('#header').classed('hidden', false);
+          d3.select('#header .innerHeader').html(msg);
+       });
 
 
       </script>
